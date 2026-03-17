@@ -551,7 +551,7 @@
   .service-item-text {
     color: var(--light-gray);
     font-size: var(--fs-6);
-    font-weight: var(--fw-3);
+    font-weight: var(--fw-300);
     line-height: 1.6;
   }
   
@@ -1113,7 +1113,35 @@
     font-weight: var(--fw-300);
     line-height: 1.6;
   }
-  
+  .featured-card { margin-top: 12px; }
+.featured-subtitle { margin-top: 6px; opacity: 0.85; }
+
+.featured-bullets {
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.featured-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.featured-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.14);
+  color: inherit;
+}
+
+.featured-btn--primary {
+  background: rgba(255,255,255,0.10);
+}
   
   
 

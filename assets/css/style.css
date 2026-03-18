@@ -1107,6 +1107,16 @@
 .featured-subtitle { margin-top: 6px; opacity: 0.85; }
 
 .featured-bullets { margin: 12px 0 0; padding-left: 18px; }
+/* Ensure nothing blocks Featured links */
+.featured-actions,
+.featured-actions * {
+  pointer-events: auto;
+}
+
+.featured-btn {
+  position: relative;
+  z-index: 999;
+}
 
 .featured-actions {
   display: flex;

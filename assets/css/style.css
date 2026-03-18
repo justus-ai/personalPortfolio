@@ -1125,7 +1125,30 @@
 .featured-actions * {
   pointer-events: auto;
 }
+/* Featured project text colors */
+.featured-card,
+.featured-card p,
+.featured-card li {
+  color: var(--light-gray);
+}
 
+.featured-card .h4 {
+  color: var(--white-2);
+}
+.featured-bullets {
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.featured-bullets li {
+  list-style: disc;
+  margin: 6px 0;
+}
+/* Make featured card look like a normal card (not testimonial style) */
+.featured-card {
+  cursor: default;
+  padding-top: 15px; /* override content-card's 45px */
+}
 .featured-btn {
   position: relative;
   z-index: 999;

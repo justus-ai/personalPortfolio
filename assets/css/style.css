@@ -1098,11 +1098,10 @@
     font-weight: var(--fw-300);
     line-height: 1.6;
   }
-.featured-card { cursor: default; }
 /*-----------------------------------*\
   #FEATURED PROJECT
 \*-----------------------------------*/
-
+.featured-project { margin-bottom: 35px; }
 .featured-card { margin-top: 12px; cursor: default; }
 
 .featured-subtitle { margin-top: 6px; opacity: 0.85; }

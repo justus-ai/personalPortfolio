@@ -1,5 +1,4 @@
-/
-img { max-width: 100%; height: auto; }
+
 :root {
 
     /**
@@ -115,6 +114,7 @@ img { max-width: 100%; height: auto; }
   li { list-style: none; }
   
   img, ion-icon, a, button, time, span { display: block; }
+  img { max-width: 100%; height: auto; }
   
   button {
     font: inherit;
@@ -1499,7 +1499,7 @@ img { max-width: 100%; height: auto; }
       max-width: 680px;
     }
   
-    .modal-avatar-box img { width: 80px; }
+    .modal-avatar-box img { width: 80px; height: auto; }
   
   
   

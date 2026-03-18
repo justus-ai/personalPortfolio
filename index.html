@@ -1,165 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Portfolio</title>
+  <title>Justus Marwa | Portfolio</title>
 
-  <!--
-    - custom css link
-  -->
+  <!-- custom css -->
   <link rel="stylesheet" href="./assets/css/style.css">
-  <!--
-    - google font link
-  -->
+
+  <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-  <!--
-    - #MAIN
-  -->
-
   <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
+    <!-- SIDEBAR -->
     <aside class="sidebar" data-sidebar>
-
       <div class="sidebar-info">
-
         <figure class="modal-avatar-box">
-          <img src="./assets/images/justus.jpg" alt="Justus Marwa" width="80">
+          <img src="./assets/images/justus.jpg" alt="Justus Marwa">
         </figure>
 
         <div class="info-content">
           <h1 class="name" title="Justus Marwa">Justus Marwa</h1>
-
-          <p class="title">Full stack developer</p>
+          <p class="title">Junior Full‑Stack Developer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
-
           <ion-icon name="chevron-down"></ion-icon>
         </button>
-
       </div>
 
       <div class="sidebar-info_more">
-
         <div class="separator"></div>
 
         <ul class="contacts-list">
-
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
               <p class="contact-title">Email</p>
-
               <a href="mailto:justusmwita@gmail.com" class="contact-link">justusmwita@gmail.com</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
               <p class="contact-title">Phone</p>
-
-              <a href="tel:+46700473996" class="contact-link">+46700473...</a>
+              <a href="tel:+46700473996" class="contact-link">+46 700 473 996</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="calendar-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
               <p class="contact-title">Birthday</p>
-
               <time datetime="1984-03-11">Mar 11, 1984</time>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
               <p class="contact-title">Location</p>
-
-              <address>insjön, Dalarna, Sweden</address>
+              <address>Insjön, Dalarna, Sweden</address>
             </div>
+          </li>
+        </ul>
 
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://github.com/justus-ai" class="social-link" target="_blank" rel="noopener">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
           </li>
 
-       <ul class="social-list">
+          <li class="social-item">
+            <a href="https://linkedin.com/in/justus-marwa-79b9b658/" class="social-link" target="_blank" rel="noopener">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
 
-  <li class="social-item">
-    <a href="https://github.com/justus-ai" class="social-link" target="_blank" rel="noopener">
-      <ion-icon name="logo-github"></ion-icon>
-    </a>
-  </li>
-
-  <li class="social-item">
-    <a href="https://linkedin.com/in/justus-marwa-79b9b658/" class="social-link" target="_blank" rel="noopener">
-      <ion-icon name="logo-linkedin"></ion-icon>
-    </a>
-  </li>
-
-  <li class="social-item">
-    <a href="https://www.facebook.com/justus.marwa" class="social-link" target="_blank" rel="noopener">
-      <ion-icon name="logo-facebook"></ion-icon>
-    </a>
-  </li>
-
-</ul>
+          <li class="social-item">
+            <a href="https://www.facebook.com/justus.marwa" class="social-link" target="_blank" rel="noopener">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+        </ul>
       </div>
-
     </aside>
 
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
+    <!-- MAIN CONTENT -->
     <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
+      <!-- NAVBAR -->
       <nav class="navbar">
-
         <ul class="navbar-list">
-
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link active" data-nav-link>About</button>
           </li>
 
           <li class="navbar-item">
@@ -169,135 +124,100 @@
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Portfolio</button>
           </li>
-
         </ul>
-
       </nav>
 
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
+      <!-- ABOUT -->
+      <article class="about active" data-page="about">
         <header>
           <h2 class="h2 article-title">About me</h2>
         </header>
 
         <section class="about-text">
           <p>
-            Junior Software Developer with a Diploma in Full stack Software Development from the Code Institute. Proficient in HTML, CSS, Javascript, Python. I have 9 years experience in Customer Service and hospitality. I am a valuable team-player with strong communication skills and effective problem solving ability. I am committed to pivoting my career into the tech industry and joining a company where I can grow and contribute!
+            Junior full‑stack developer based in Dalarna, Sweden. I build web applications using HTML, CSS, JavaScript,
+            Python, and Django.
           </p>
-
+          <p>
+            I enjoy building production‑style projects with authentication, databases, and payments (Stripe). Currently
+            looking for a junior developer role where I can grow and contribute.
+          </p>
         </section>
-<section class="featured-project">
-  <h3 class="h3 service-title">Featured Project</h3>
 
-  <article class="content-card featured-card">
-    <h4 class="h4">Swahili Bob Tattoo</h4>
-    <p class="featured-subtitle">Full‑stack Django e‑commerce website</p>
+        <!-- FEATURED PROJECT -->
+        <section class="featured-project">
+          <h3 class="h3 service-title">Featured Project</h3>
 
-    <ul class="featured-bullets">
-      <li>Django + PostgreSQL deployment (Render)</li>
-      <li>User accounts + profiles (django-allauth)</li>
-      <li>Stripe payments + bag/checkout flow</li>
-    </ul>
+          <article class="content-card featured-card">
+            <h4 class="h4">Swahili Bob Tattoo</h4>
+            <p class="featured-subtitle">Full‑stack Django e‑commerce website</p>
 
-    <div class="featured-actions">
-      <a class="featured-btn"
-         href="https://github.com/justus-ai/swahili_bob_tattoo"
-         target="_blank" rel="noopener">
-        GitHub Repo
-      </a>
+            <ul class="featured-bullets">
+              <li>Django + PostgreSQL deployment (Render)</li>
+              <li>User accounts + profiles (django-allauth)</li>
+              <li>Stripe payments + bag/checkout flow</li>
+            </ul>
 
-      <a class="featured-btn featured-btn--primary"
-         href="https://swahili-bob-tattoo.onrender.com"
-         target="_blank" rel="noopener">
-        Live Demo
-      </a>
-    </div>
-  </article>
-</section>
+            <div class="featured-actions">
+              <a class="featured-btn" href="https://github.com/justus-ai/swahili_bob_tattoo" target="_blank" rel="noopener">
+                GitHub Repo
+              </a>
 
-        <!--
-          - service
-        -->
+              <a class="featured-btn featured-btn--primary" href="https://swahili-bob-tattoo.onrender.com" target="_blank" rel="noopener">
+                Live Demo
+              </a>
+            </div>
+          </article>
+        </section>
 
+        <!-- SERVICE -->
         <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
+          <h3 class="h3 service-title">What I'm doing</h3>
 
           <ul class="service-list">
-
             <li class="service-item">
-
-              <div class="service-icon-box">
-              </div>
+              <div class="service-icon-box"></div>
 
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Hackathons</h4>
-
                 <p class="service-item-text">
-                  Hosted on slack are hackathons where alumni and current students from code institute correspond and meet for monthly hackathon challenges.
+                  Participating in Code Institute hackathons to collaborate, ship features quickly, and learn from teams.
                 </p>
               </div>
-
             </li>
 
             <li class="service-item">
-
-              <div class="service-icon-box">
-              </div>
+              <div class="service-icon-box"></div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Creating personal portfolio </h4>
-
+                <h4 class="h4 service-item-title">Portfolio & job search</h4>
                 <p class="service-item-text">
-                  online seminar and code institue guides on slack on ho to get into the job market.
+                  Improving my portfolio and projects with better documentation, demos, and interview-ready features.
                 </p>
               </div>
-
             </li>
 
             <li class="service-item">
-
-              <div class="service-icon-box">
-              </div>
+              <div class="service-icon-box"></div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">linkedin courses</h4>
-
+                <h4 class="h4 service-item-title">Continuous learning</h4>
                 <p class="service-item-text">
-                  Following youtube tutorial project on react and linkedin learning.
+                  Taking LinkedIn Learning courses and building small projects to strengthen React and full‑stack skills.
                 </p>
               </div>
-
-           
-
+            </li>
           </ul>
-
         </section>
 
-
-        <!--
-          - testimonials
-        -->
-
+        <!-- TESTIMONIALS -->
         <section class="testimonials">
-
           <h3 class="h3 testimonials-title">Testimonials</h3>
 
           <ul class="testimonials-list has-scrollbar">
-
             <li class="testimonials-item">
               <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                </figure>
+                <figure class="testimonials-avatar-box"></figure>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Ulf Sunnanängs</h4>
 
@@ -306,447 +226,208 @@
                     Justus är en mycket trevlig ung man med stora sociala förmågor och är inte rädd för att lära sig nya saker.
                   </p>
                 </div>
-
               </div>
             </li>
-
-           
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Justus was hired to create a corporate identity. We were very pleased with the work done.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            
-
           </ul>
-
         </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Justus was hired to create a corporate identity. We were very pleased with the work done. He has a
-                  lot of experience
-                  and is very concerned about the needs of client. 
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
       </article>
 
-
-
-
-
-      <!--
-        - #RESUME
-      -->
-
+      <!-- RESUME -->
       <article class="resume" data-page="resume">
-
         <header>
           <h2 class="h2 article-title">Resume</h2>
         </header>
 
         <section class="timeline">
-
           <div class="title-wrapper">
             <div class="icon-box">
               <ion-icon name="book-outline"></ion-icon>
             </div>
-
             <h3 class="h3">Education</h3>
           </div>
 
           <ol class="timeline-list">
-
             <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Diploma from The Code Institute</h4>
-
-              <span>  2021 — 2022</span>
-
+              <h4 class="h4 timeline-item-title">Diploma — Code Institute</h4>
+              <span>2021 — 2022</span>
               <p class="timeline-text">
-                Diploma in Full Stack Software Development
-Code Institute - Dublin, Ireland - Accredited by Edinburg Napier University West of Scotland
-
+                Diploma in Full Stack Software Development (accredited).
               </p>
-
             </li>
 
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">Bachelor of Business Administration and Management</h4>
-
               <span>2006 — 2011</span>
-
               <p class="timeline-text">
-                 accredited by Northwood University
+                Accredited by Northwood University.
               </p>
-
             </li>
-
-            
           </ol>
-
         </section>
 
         <section class="timeline">
-
           <div class="title-wrapper">
             <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+              <ion-icon name="briefcase-outline"></ion-icon>
             </div>
-
             <h3 class="h3">Experience</h3>
           </div>
 
           <ol class="timeline-list">
-
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">Forklift driver</h4>
-
               <span>2020 — Present</span>
-
-              <p class="timeline-text">
-                Ica warehouse, Borlänge
-              </p>
-
+              <p class="timeline-text">ICA warehouse, Borlänge</p>
             </li>
 
             <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Retaurant Manager</h4>
-
+              <h4 class="h4 timeline-item-title">Restaurant manager</h4>
               <span>2018 — 2020</span>
-
-              <p class="timeline-text">
-                Bastard Burgers, Liljeholmen, Stockholm.
-
+              <p class="timeline-text">Bastard Burgers, Liljeholmen, Stockholm</p>
             </li>
 
             <li class="timeline-item">
-
               <h4 class="h4 timeline-item-title">Kitchen manager</h4>
-
               <span>2013 — 2018</span>
-
-              <p class="timeline-text">
-                Svenska sushi köket, stockholm
-              </p>
-
+              <p class="timeline-text">Svenska Sushi Köket, Stockholm</p>
             </li>
-
           </ol>
-
         </section>
 
         <section class="skill">
-
           <h3 class="h3 skills-title">My skills</h3>
 
           <ul class="skills-list content-card">
-
             <li class="skills-item">
               <div class="title-wrapper">
-                <h5 class="h5">Html</h5>
+                <h5 class="h5">HTML</h5>
                 <data value="80">80%</data>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
             </li>
 
             <li class="skills-item">
-
               <div class="title-wrapper">
-                <h5 class="h5">Css</h5>
+                <h5 class="h5">CSS</h5>
                 <data value="70">70%</data>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 70%;"></div></div>
             </li>
 
             <li class="skills-item">
-
               <div class="title-wrapper">
-                <h5 class="h5">javascript</h5>
+                <h5 class="h5">JavaScript</h5>
                 <data value="90">90%</data>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
             </li>
 
             <li class="skills-item">
-
               <div class="title-wrapper">
                 <h5 class="h5">Python</h5>
                 <data value="50">50%</data>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 50%;"></div></div>
             </li>
-            <li class="skills-item">
 
+            <li class="skills-item">
               <div class="title-wrapper">
                 <h5 class="h5">Django</h5>
                 <data value="50">50%</data>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 50%;"></div></div>
             </li>
-
           </ul>
-
         </section>
-
       </article>
 
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
+      <!-- PORTFOLIO -->
       <article class="portfolio" data-page="portfolio">
-
         <header>
           <h2 class="h2 article-title">Portfolio</h2>
         </header>
 
         <section class="projects">
-
           <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Projects</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Hackathons</button>
-            </li>
-
+            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+            <li class="filter-item"><button data-filter-btn>Projects</button></li>
+            <li class="filter-item"><button data-filter-btn>Hackathons</button></li>
           </ul>
 
           <div class="filter-select-box">
-
             <button class="filter-select" data-select>
-
               <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
             </button>
 
             <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Projects</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Hackathons</button>
-              </li>
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>Projects</button></li>
+              <li class="select-item"><button data-select-item>Hackathons</button></li>
             </ul>
-
           </div>
 
           <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="projects">
-              <a href="https://justus-ai.github.io/leksands-oudoor-workout/">
-
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://justus-ai.github.io/leksands-oudoor-workout/" target="_blank" rel="noopener">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                 </figure>
-
-                <h3 class="project-title">leksand's Outdoor workout</h3>
-
-                <p class="project-category">First milestone Project; html and css</p>
-
+                <h3 class="project-title">Leksand's Outdoor Workout</h3>
+                <p class="project-category">HTML • CSS</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="projects">
-              <a href="https://justus-ai.github.io/swenglish/">
-
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://justus-ai.github.io/swenglish/" target="_blank" rel="noopener">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                 </figure>
-
                 <h3 class="project-title">Swenglish</h3>
-
-                <p class="project-category">second milestone project built with css html and javascript</p>
-
+                <p class="project-category">HTML • CSS • JavaScript</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="projects">
-              <a href="https://amazing-food-jept.onrender.com">
-
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://amazing-food-jept.onrender.com" target="_blank" rel="noopener">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                 </figure>
-
-                <h3 class="project-title">Amazing food </h3>
-
-                <p class="project-category">3rd milstone project built HTML5 , CSS 
-                  javaScript, Python and bootstrap.
-                   </p>
-
+                <h3 class="project-title">Amazing Food</h3>
+                <p class="project-category">Python • JavaScript • HTML • CSS • Bootstrap</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="projects">
-              <a href="https://swahili-bob-tattoo.onrender.com">
-
+            <li class="project-item active" data-filter-item data-category="projects">
+              <a href="https://swahili-bob-tattoo.onrender.com" target="_blank" rel="noopener">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-              
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                 </figure>
-
-                <h3 class="project-title">swahili bob tattoo</h3>
-
-                <p class="project-category">4th milstone project built with HTML5 , CSS,
-                  JavaScript, python and django</p>
-
+                <h3 class="project-title">Swahili Bob Tattoo</h3>
+                <p class="project-category">Django • Stripe • Auth • PostgreSQL • HTML • CSS</p>
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="hackathons">
-              <a href="https://gift-appy.onrender.com/">
-
+            <li class="project-item active" data-filter-item data-category="hackathons">
+              <a href="https://gift-appy.onrender.com/" target="_blank" rel="noopener">
                 <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
                 </figure>
-
-                <h3 class="project-title">Gift appy</h3>
-
-                <p class="project-category">Hackathon dec 2022</p>
+                <h3 class="project-title">Gift Appy</h3>
+                <p class="project-category">Hackathon — Dec 2022</p>
               </a>
             </li>
-
-            
-
           </ul>
-
         </section>
-
       </article>
-
-
-      
     </div>
-
   </main>
 
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
+  <!-- custom js -->
   <script src="./assets/js/script.js"></script>
 
-  <!--
-    - ionicon link
-  -->
+  <!-- ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
 </body>
-
 </html>

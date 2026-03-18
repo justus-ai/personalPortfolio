@@ -1576,8 +1576,21 @@
   /**
    * responsive larger than 1024px screen
    */
-  
-  @media (min-width: 1024px) {
+  /* Ensure desktop navbar has a proper positioning context and stays visible */
+@media (min-width: 1024px) {
+    .main-content {
+    position: relative; /* you already have this */
+  }
+
+  .navbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: max-content;
+
+    z-index: 50; /* <-- add THIS line */
+  }
+}
   
     /**
      * CUSTOM PROPERTY

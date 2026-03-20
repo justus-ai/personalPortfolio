@@ -5,6 +5,8 @@ export type Project = {
   note: string;
 };
 
+
+
 export const projects: Project[] = [
   {
     name: "Swahili Bob Tattoo",

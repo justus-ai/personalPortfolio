@@ -31,13 +31,14 @@ export default function App() {
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:py-16">
         {/* HERO */}
-       <div className="mx-auto mb-6 h-28 w-28 overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-sm sm:h-32 sm:w-32">
-  <img
-    src={heroImg}
-    className="h-full w-full object-cover object-top"
-    alt="Portrait of Justus Marwa"
-  />
-</div>
+        <header className="text-center">
+          <div className="mx-auto mb-6 h-28 w-28 overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-sm sm:h-32 sm:w-32">
+            <img
+              src={heroImg}
+              className="h-full w-full object-cover object-top"
+              alt="Portrait of Justus Marwa"
+            />
+          </div>
 
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
             <span className="bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
@@ -86,22 +87,18 @@ export default function App() {
               {projects.map((p) => (
                 <li
                   key={p.repo}
-                  className="group rounded-2xl border border-white/10 bg-white/5 p-5 transition
-                             hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-black/20"
+                  className="group rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-black/20"
                 >
                   <h3 className="text-lg font-semibold leading-snug">{p.name}</h3>
 
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-300">
-                    {p.note}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-300">{p.note}</p>
 
                   <div className="mt-5 flex flex-wrap gap-2">
                     <a
                       href={p.live}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-indigo-400 to-fuchsia-400 px-3 py-2 text-sm font-semibold text-zinc-950 transition
-                                 hover:from-indigo-300 hover:to-fuchsia-300 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+                      className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-indigo-400 to-fuchsia-400 px-3 py-2 text-sm font-semibold text-zinc-950 transition hover:from-indigo-300 hover:to-fuchsia-300 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
                       style={{ textDecoration: "none" }}
                     >
                       Live
@@ -111,8 +108,7 @@ export default function App() {
                       href={p.repo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-transparent px-3 py-2 text-sm font-semibold text-zinc-100 transition
-                                 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
+                      className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-transparent px-3 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
                       style={{ textDecoration: "none" }}
                     >
                       Code
@@ -130,19 +126,16 @@ export default function App() {
 
             <ul className="mt-5 grid list-none gap-2 p-0">
               {links.map((l) => (
-                <li key={l.url}>
+                <li key={l.url} className="group">
                   <a
                     href={l.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-zinc-950/20 px-4 py-3 text-sm font-medium text-zinc-100 transition
-                               hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-black/20"
+                    className="flex items-center justify-between rounded-xl border border-white/10 bg-zinc-950/20 px-4 py-3 text-sm font-medium text-zinc-100 transition hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-black/20"
                     style={{ textDecoration: "none" }}
                   >
                     <span>{l.label}</span>
-                    <span className="text-zinc-400 transition group-hover:text-zinc-300">
-                      ↗
-                    </span>
+                    <span className="text-zinc-400 transition group-hover:text-zinc-300">↗</span>
                   </a>
                 </li>
               ))}

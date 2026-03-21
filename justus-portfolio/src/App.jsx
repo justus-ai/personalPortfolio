@@ -31,16 +31,13 @@ export default function App() {
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:py-16">
         {/* HERO */}
-        <header className="text-center">
-          <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-3 shadow-sm">
-            <img
-              src={heroImg}
-              className="h-full w-full object-contain"
-              width="170"
-              height="179"
-              alt="Portrait"
-            />
-          </div>
+       <div className="mx-auto mb-6 h-28 w-28 overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-sm sm:h-32 sm:w-32">
+  <img
+    src={heroImg}
+    className="h-full w-full object-cover object-top"
+    alt="Portrait of Justus Marwa"
+  />
+</div>
 
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
             <span className="bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">

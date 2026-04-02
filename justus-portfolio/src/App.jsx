@@ -1,162 +1,425 @@
+import { useEffect, useMemo, useRef, useState } from "react";
 import heroImg from "./assets/justus.jpg";
-import "./App.css";
 import { projects } from "./projects";
 
-const links = [
-  { label: "GitHub", url: "https://github.com/justus-ai" },
-  { label: "LinkedIn", url: "https://www.linkedin.com/in/justus-marwa-79b9b658/" },
-  { label: "Facebook", url: "https://www.facebook.com/justus.marwa" },
+const navItems = ["about", "resume", "portfolio"];
+
+const services = [
+  {
+    title: "Hackathons",
+    text: "Participating in Code Institute hackathons to collaborate, ship features quickly, and learn from teams.",
+  },
+  {
+    title: "Portfolio & job search",
+    text: "Improving my portfolio and projects with better documentation, demos, and interview-ready features.",
+  },
+  {
+    title: "Continuous learning",
+    text: "Taking LinkedIn Learning courses and building small projects to strengthen React and full-stack skills.",
+  },
+];
+
+const education = [
+  {
+    title: "Diploma — Code Institute",
+    years: "2021 — 2022",
+    text: "Diploma in Full Stack Software Development (accredited).",
+  },
+  {
+    title: "Bachelor of Business Administration and Management",
+    years: "2006 — 2011",
+    text: "Accredited by Northwood University.",
+  },
+];
+
+const experience = [
+  {
+    title: "Forklift driver",
+    years: "2020 — Present",
+    text: "ICA warehouse, Borlänge",
+  },
+  {
+    title: "Restaurant manager",
+    years: "2018 — 2020",
+    text: "Bastard Burgers, Liljeholmen, Stockholm",
+  },
+  {
+    title: "Kitchen manager",
+    years: "2013 — 2018",
+    text: "Svenska Sushi Köket, Stockholm",
+  },
 ];
 
 const skills = [
-  "React",
-  "JavaScript",
-  "TypeScript",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "PostgreSQL",
-  "Tailwind CSS",
-  "Git/GitHub",
+  { name: "HTML", level: 80 },
+  { name: "CSS", level: 70 },
+  { name: "JavaScript", level: 90 },
+  { name: "Python", level: 50 },
+  { name: "Django", level: 65 },
+  { name: "React", level: 55 },
 ];
 
-export default function App() {
+const socials = [
+  { name: "logo-github", url: "https://github.com/justus-ai", label: "GitHub" },
+  { name: "logo-linkedin", url: "https://linkedin.com/in/justus-marwa-79b9b658/", label: "LinkedIn" },
+  { name: "logo-facebook", url: "https://www.facebook.com/justus.marwa", label: "Facebook" },
+];
+
+const filterOptions = ["all", "projects", "hackathons"];
+
+function TimelineSection({ icon, title, items }) {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      {/* subtle background glow */}
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-1/2 top-[-140px] h-[560px] w-[560px] -translate-x-1/2 rounded-full bg-indigo-500/12 blur-3xl" />
-        <div className="absolute bottom-[-260px] right-[-200px] h-[560px] w-[560px] rounded-full bg-fuchsia-500/10 blur-3xl" />
+    <section className="timeline">
+      <div className="title-wrapper">
+        <div className="icon-box">
+          <ion-icon name={icon}></ion-icon>
+        </div>
+        <h3 className="h3">{title}</h3>
       </div>
 
-      <div className="mx-auto max-w-5xl px-4 py-12 sm:py-16">
-        {/* HERO */}
-        <header className="text-center">
-          {/* Circle avatar (no crop/zoom): contain */}
-          <div className="mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-sm sm:h-36 sm:w-36">
-            <img
-              src={heroImg}
-              className="h-full w-full object-contain p-2"
-              alt="Portrait of Justus Marwa"
-            />
-          </div>
+      <ol className="timeline-list">
+        {items.map((item) => (
+          <li className="timeline-item" key={`${title}-${item.title}`}>
+            <h4 className="h4 timeline-item-title">{item.title}</h4>
+            <span>{item.years}</span>
+            <p className="timeline-text">{item.text}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
 
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
-            <span className="bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
+export default function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [activePage, setActivePage] = useState("about");
+  const [portfolioFilter, setPortfolioFilter] = useState("all");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [animateSkills, setAnimateSkills] = useState(false);
+  const skillSectionRef = useRef(null);
+
+  const filteredProjects = useMemo(() => {
+    if (portfolioFilter === "all") return projects;
+    return projects.filter((project) => project.category === portfolioFilter);
+  }, [portfolioFilter]);
+
+  useEffect(() => {
+    if (activePage !== "resume") {
+      setAnimateSkills(false);
+      return undefined;
+    }
+
+    const skillSection = skillSectionRef.current;
+    if (!skillSection) return undefined;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setAnimateSkills(true);
+      return undefined;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      setAnimateSkills(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setAnimateSkills(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(skillSection);
+
+    return () => observer.disconnect();
+  }, [activePage]);
+
+  useEffect(() => {
+    setIsFilterOpen(false);
+  }, [portfolioFilter]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activePage]);
+
+  return (
+    <main>
+      <aside className={`sidebar${isSidebarOpen ? " active" : ""}`}>
+        <div className="sidebar-info">
+          <figure className="avatar-box">
+            <img src={heroImg} alt="Justus Marwa" />
+          </figure>
+
+          <div className="info-content">
+            <h1 className="name" title="Justus Marwa">
               Justus Marwa
-            </span>
-          </h1>
-
-          <div className="mt-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-zinc-200">
-            <span className="h-2 w-2 rounded-full bg-emerald-400/80" />
-            Junior Fullstack Developer
+            </h1>
+            <p className="title">Junior Full-Stack Developer</p>
           </div>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-            I build web apps and small products. Below are a few projects I’ve deployed.
-          </p>
+          <button className="info_more-btn" onClick={() => setIsSidebarOpen((open) => !open)} type="button">
+            <span>{isSidebarOpen ? "Hide Contacts" : "Show Contacts"}</span>
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
 
-          <div className="mx-auto mt-7 flex max-w-3xl flex-wrap justify-center gap-2">
-            {skills.map((s) => (
-              <span
-                key={s}
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-zinc-200"
-              >
-                {s}
-              </span>
-            ))}
-          </div>
-        </header>
+        <div className="sidebar-info_more">
+          <div className="separator"></div>
 
-        {/* divider */}
-        <div className="my-12 h-px w-full bg-white/10" />
-
-        {/* CONTENT */}
-        <main className="grid gap-10 lg:grid-cols-3">
-          {/* Projects */}
-          <section className="lg:col-span-2">
-            <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
-                <p className="mt-1 text-sm text-zinc-400">Live demos + code</p>
+          <ul className="contacts-list">
+            <li className="contact-item">
+              <div className="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
               </div>
 
-              <div className="text-sm text-zinc-400">{projects.length} projects</div>
-            </div>
+              <div className="contact-info">
+                <p className="contact-title">Email</p>
+                <a href="mailto:justusmwita@gmail.com" className="contact-link">
+                  justusmwita@gmail.com
+                </a>
+              </div>
+            </li>
 
-            <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
-              {projects.map((p) => (
-                <li
-                  key={p.repo}
-                  className="group rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-black/20"
+            <li className="contact-item">
+              <div className="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+
+              <div className="contact-info">
+                <p className="contact-title">Phone</p>
+                <a href="tel:+46700473996" className="contact-link">
+                  +46 700 4xxxxx
+                </a>
+              </div>
+            </li>
+
+            <li className="contact-item">
+              <div className="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+
+              <div className="contact-info">
+                <p className="contact-title">Birthday</p>
+                <time dateTime="1984-03-11">Mar 11, 1984</time>
+              </div>
+            </li>
+
+            <li className="contact-item">
+              <div className="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+
+              <div className="contact-info">
+                <p className="contact-title">Location</p>
+                <address>Insjön, Dalarna, Sweden</address>
+              </div>
+            </li>
+          </ul>
+
+          <div className="separator"></div>
+
+          <ul className="social-list">
+            {socials.map((social) => (
+              <li className="social-item" key={social.label}>
+                <a href={social.url} className="social-link" target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                  <ion-icon name={social.name}></ion-icon>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+
+      <div className="main-content">
+        <nav className="navbar">
+          <ul className="navbar-list">
+            {navItems.map((item) => (
+              <li className="navbar-item" key={item}>
+                <button
+                  className={`navbar-link${activePage === item ? " active" : ""}`}
+                  onClick={() => setActivePage(item)}
+                  type="button"
                 >
-                  <h3 className="text-lg font-semibold leading-snug">{p.name}</h3>
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-300">{p.note}</p>
+        <article className={`about${activePage === "about" ? " active" : ""}`}>
+          <header>
+            <h2 className="h2 article-title">About me</h2>
+          </header>
 
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    <a
-                      href={p.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-indigo-400 to-fuchsia-400 px-3 py-2 text-sm font-semibold text-zinc-950 transition hover:from-indigo-300 hover:to-fuchsia-300 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
-                      style={{ textDecoration: "none" }}
-                    >
-                      Live
-                    </a>
+          <section className="about-text">
+            <p>
+              Junior full-stack developer based in Dalarna, Sweden. I build web applications using HTML, CSS, JavaScript,
+              Python, and Django.
+            </p>
+            <p>
+              I enjoy building production-style projects with authentication, databases, and payments (Stripe). Currently
+              looking for a junior developer role where I can grow and contribute.
+            </p>
+          </section>
 
-                    <a
-                      href={p.repo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-transparent px-3 py-2 text-sm font-semibold text-zinc-100 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-400/60"
-                      style={{ textDecoration: "none" }}
-                    >
-                      Code
-                    </a>
+          <section className="featured-project">
+            <h3 className="h3 service-title">Featured Project</h3>
+
+            <div className="content-card featured-card">
+              <h4 className="h4">Swahili Bob Tattoo</h4>
+              <p className="featured-subtitle">Full-stack Django e-commerce website</p>
+
+              <ul className="featured-bullets">
+                <li>Django + PostgreSQL deployment (Render)</li>
+                <li>User accounts + profiles (django-allauth)</li>
+                <li>Stripe payments + bag/checkout flow</li>
+              </ul>
+
+              <div className="featured-actions">
+                <a className="featured-btn" href="https://github.com/justus-ai/swahili_bob_tattoo" target="_blank" rel="noopener noreferrer">
+                  GitHub Repo
+                </a>
+                <a
+                  className="featured-btn featured-btn--primary"
+                  href="https://swahili-bob-tattoo.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section className="service">
+            <h3 className="h3 service-title">What I&apos;m doing</h3>
+
+            <ul className="service-list">
+              {services.map((service) => (
+                <li className="service-item" key={service.title}>
+                  <div className="service-icon-box"></div>
+
+                  <div className="service-content-box">
+                    <h4 className="h4 service-item-title">{service.title}</h4>
+                    <p className="service-item-text">{service.text}</p>
                   </div>
                 </li>
               ))}
             </ul>
           </section>
 
-          {/* Contact */}
-          <aside className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-2xl font-semibold tracking-tight">Contact</h2>
-            <p className="mt-1 text-sm text-zinc-400">Find me here</p>
+          <section className="testimonials">
+            <h3 className="h3 testimonials-title">Testimonials</h3>
 
-            <ul className="mt-5 grid list-none gap-2 p-0">
-              {links.map((l) => (
-                <li key={l.url} className="group">
-                  <a
-                    href={l.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-zinc-950/20 px-4 py-3 text-sm font-medium text-zinc-100 transition hover:border-white/20 hover:bg-white/10 hover:shadow-lg hover:shadow-black/20"
-                    style={{ textDecoration: "none" }}
+            <ul className="testimonials-list has-scrollbar">
+              <li className="testimonials-item">
+                <div className="content-card">
+                  <figure className="testimonials-avatar-box"></figure>
+                  <h4 className="h4 testimonials-item-title">Ulf Sunnanängs</h4>
+                  <div className="testimonials-text">
+                    <p>
+                      Justus är en mycket trevlig ung man med stora sociala förmågor och är inte rädd för att lära sig nya
+                      saker.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </article>
+
+        <article className={`resume${activePage === "resume" ? " active" : ""}`}>
+          <header>
+            <h2 className="h2 article-title">Resume</h2>
+          </header>
+
+          <TimelineSection icon="book-outline" title="Education" items={education} />
+          <TimelineSection icon="briefcase-outline" title="Experience" items={experience} />
+
+          <section className="skill" ref={skillSectionRef}>
+            <h3 className="h3 skills-title">My skills</h3>
+
+            <ul className="skills-list content-card">
+              {skills.map((skill) => (
+                <li className="skills-item" key={skill.name}>
+                  <div className="title-wrapper">
+                    <h5 className="h5">{skill.name}</h5>
+                    <data value={skill.level}>{skill.level}%</data>
+                  </div>
+                  <div className="skill-progress-bg">
+                    <div
+                      className="skill-progress-fill"
+                      style={{ width: animateSkills ? `${skill.level}%` : "0%" }}
+                    ></div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </article>
+
+        <article className={`portfolio${activePage === "portfolio" ? " active" : ""}`}>
+          <header>
+            <h2 className="h2 article-title">Portfolio</h2>
+          </header>
+
+          <section className="projects">
+            <ul className="filter-list">
+              {filterOptions.map((option) => (
+                <li className="filter-item" key={`desktop-${option}`}>
+                  <button
+                    className={portfolioFilter === option ? "active" : ""}
+                    onClick={() => setPortfolioFilter(option)}
+                    type="button"
                   >
-                    <span>{l.label}</span>
-                    <span className="text-zinc-400 transition group-hover:text-zinc-300">↗</span>
-                  </a>
+                    {option.charAt(0).toUpperCase() + option.slice(1)}
+                  </button>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-6 rounded-xl border border-white/10 bg-zinc-950/20 p-4">
-              <p className="text-sm text-zinc-300">
-                Want to talk? Message me on LinkedIn and I’ll reply ASAP.
-              </p>
+            <div className="filter-select-box">
+              <button className={`filter-select${isFilterOpen ? " active" : ""}`} onClick={() => setIsFilterOpen((open) => !open)} type="button">
+                <div className="select-value">{portfolioFilter.charAt(0).toUpperCase() + portfolioFilter.slice(1)}</div>
+                <div className="select-icon">
+                  <ion-icon name="chevron-down"></ion-icon>
+                </div>
+              </button>
+
+              <ul className="select-list">
+                {filterOptions.map((option) => (
+                  <li className="select-item" key={`mobile-${option}`}>
+                    <button onClick={() => setPortfolioFilter(option)} type="button">
+                      {option.charAt(0).toUpperCase() + option.slice(1)}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </aside>
-        </main>
 
-        {/* footer divider */}
-        <div className="my-12 h-px w-full bg-white/10" />
-
-        <footer className="text-center text-sm text-zinc-400">
-          © {new Date().getFullYear()} Justus Marwa
-        </footer>
+            <ul className="project-list">
+              {filteredProjects.map((project) => (
+                <li className="project-item active" key={project.live}>
+                  <a href={project.live} target="_blank" rel="noopener noreferrer">
+                    <figure className="project-img">
+                      <div className="project-item-icon-box">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </div>
+                    </figure>
+                    <h3 className="project-title">{project.name}</h3>
+                    <p className="project-category">{project.stack}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </article>
       </div>
-    </div>
+    </main>
   );
 }

@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "npm --prefix justus-portfolio run dev",
     "build": "npm --prefix justus-portfolio run build",
+    "build:pages": "npm --prefix justus-portfolio run build:pages",
     "preview": "npm --prefix justus-portfolio run preview",
     "lint": "npm --prefix justus-portfolio run lint",
     "install:app": "npm --prefix justus-portfolio install"

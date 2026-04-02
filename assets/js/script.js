@@ -138,6 +138,49 @@ if (form && formInputs.length && formBtn) {
 }
 
 /**
+ * Skills progress animation
+ */
+const skillSection = document.querySelector('.skill');
+const skillBars = document.querySelectorAll('.skill-progress-fill');
+
+if (skillSection && skillBars.length) {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  for (let i = 0; i < skillBars.length; i++) {
+    const targetWidth = skillBars[i].style.width || '0%';
+    skillBars[i].dataset.targetWidth = targetWidth;
+
+    if (!prefersReducedMotion) {
+      skillBars[i].style.width = '0%';
+    }
+  }
+
+  const revealSkillBars = () => {
+    for (let i = 0; i < skillBars.length; i++) {
+      skillBars[i].style.width = skillBars[i].dataset.targetWidth;
+    }
+  };
+
+  if (prefersReducedMotion) {
+    revealSkillBars();
+  } else if ('IntersectionObserver' in window) {
+    const skillsObserver = new IntersectionObserver(
+      (entries, observer) => {
+        if (entries[0].isIntersecting) {
+          revealSkillBars();
+          observer.unobserve(skillSection);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    skillsObserver.observe(skillSection);
+  } else {
+    revealSkillBars();
+  }
+}
+
+/**
  * Page navigation
  */
 /**

@@ -863,6 +863,11 @@
     background: var(--text-gradient-yellow);
     height: 100%;
     border-radius: inherit;
+    transition: width 900ms ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skill-progress-fill { transition: none; }
   }
   
   

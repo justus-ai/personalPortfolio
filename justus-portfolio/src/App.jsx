@@ -407,6 +407,14 @@ export default function App() {
                 <li className="project-item active" key={project.live}>
                   <a href={project.live} target="_blank" rel="noopener noreferrer">
                     <figure className="project-img">
+                      <img
+                        src={project.image}
+                        alt={`${project.name} homepage screenshot`}
+                        className="project-preview"
+                        loading="lazy"
+                        decoding="async"
+                        referrerPolicy="no-referrer"
+                      />
                       <div className="project-item-icon-box">
                         <ion-icon name="eye-outline"></ion-icon>
                       </div>

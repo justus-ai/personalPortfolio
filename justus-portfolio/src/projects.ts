@@ -5,9 +5,8 @@ export type Project = {
   note: string;
   category: "projects" | "hackathons";
   stack: string;
+  image: string;
 };
-
-
 
 export const projects: Project[] = [
   {
@@ -17,6 +16,7 @@ export const projects: Project[] = [
     note: "React and Next.js rental app deployed on Render.",
     category: "projects",
     stack: "React • Next.js",
+    image: "/images/amigo-rentals.png",
   },
   {
     name: "Swahili Bob Tattoo",
@@ -25,6 +25,7 @@ export const projects: Project[] = [
     note: "Full-stack app (deployed on Render).",
     category: "projects",
     stack: "Django • Stripe • Auth • PostgreSQL • HTML • CSS",
+    image: "/images/swahili-bob-tattoo.png",
   },
   {
     name: "Amazing Food",
@@ -33,6 +34,7 @@ export const projects: Project[] = [
     note: "Full-stack app (deployed on Render).",
     category: "projects",
     stack: "Python • JavaScript • HTML • CSS • Bootstrap",
+    image: "/images/amazing-food.png",
   },
   {
     name: "Gift Appy",
@@ -41,6 +43,7 @@ export const projects: Project[] = [
     note: "Hackathon project — Dec 2022.",
     category: "hackathons",
     stack: "Hackathon — Dec 2022",
+    image: "",
   },
   {
     name: "Leksands Outdoor Workout",
@@ -49,6 +52,7 @@ export const projects: Project[] = [
     note: "Static site (GitHub Pages).",
     category: "projects",
     stack: "HTML • CSS",
+    image: "/images/leksands-outdoor.png",
   },
   {
     name: "Swenglish",
@@ -57,6 +61,7 @@ export const projects: Project[] = [
     note: "Static site (GitHub Pages).",
     category: "projects",
     stack: "HTML • CSS • JavaScript",
+    image: "/images/swenglish.png",
   },
   {
     name: "React Portfolio Preview (WIP)",
@@ -65,5 +70,6 @@ export const projects: Project[] = [
     note: "React portfolio deployed on Render.",
     category: "projects",
     stack: "React • Vite • Render",
+    image: "/images/react-portfolio.png",
   },
 ];

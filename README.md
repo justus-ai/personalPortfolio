@@ -73,6 +73,9 @@ Highlights:
 ---
 
 ## Portfolio Projects
+- **personal portfolio** (React • CSS)  
+ https://personalportfolio-hbc7.onrender.com
+
 - **Leksand's Outdoor Workout** (HTML • CSS)  
   https://justus-ai.github.io/leksands-oudoor-workout/
 
@@ -86,7 +89,7 @@ Highlights:
   https://swahili-bob-tattoo.onrender.com
 
 - **Gift Appy** (Hackathon — Dec 2022)  
-  https://gift-appy.onrender.com/
+https://gift-appy-o7hn.onrender.com
 
 ---
 

@@ -703,13 +703,11 @@ article.active {
 .project-list {
   display: grid;
   grid-template-columns: 1fr;
-  justify-items: center;
   gap: 30px;
   margin-bottom: 10px;
 }
 
 .project-item {
-  width: 100%;
   animation: scaleUp 0.25s ease forwards;
 }
 
@@ -721,8 +719,6 @@ article.active {
 .project-item > a {
   display: block;
   width: 100%;
-  max-width: 300px;
-  margin-inline: auto;
 }
 
 .project-item > a:hover .project-preview {
@@ -733,19 +729,16 @@ article.active {
   position: relative;
   width: 100%;
   height: 170px;
-  margin-inline: auto;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 16px;
   overflow: hidden;
   background: var(--bg-gradient-jet);
 }
 
 .project-preview {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
   transition: transform var(--transition-1);
 }
 
@@ -784,15 +777,13 @@ article.active {
 
 .project-title,
 .project-category {
-  margin-left: 0;
-  text-align: center;
+  margin-left: 10px;
 }
 
 .project-title {
   color: var(--white-2);
   font-size: var(--fs-5);
   font-weight: var(--fw-400);
-  margin-bottom: 4px;
   line-height: 1.3;
 }
 
